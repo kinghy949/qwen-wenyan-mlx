@@ -57,7 +57,31 @@ Test loss 0.858, Test ppl 2.359
 
 - Test loss (0.858) ≈ Val loss (0.840)，两者一致 → 测试集和验证集分布相近，**数字真实反映过拟合后的泛化水平**。
 - Perplexity 2.36 含义：模型对正确答案的平均"分支预测数"约 2.4 个 token，对生成任务属于**可用但不惊艳**的水平（理想 < 2.0）。
-- 用 iter 200 的 adapter 重测，理论上 test loss 应该降到 ~0.68 附近——值得做对比。
+- 用 iter 200 的 adapter 重测，理论上 test loss 应该降到 ~0.68 附近——见下方对照。
+
+### Checkpoint 对照（同一测试集 + 同一 prompt）
+
+| 指标 | iter 200 (val 最低) | iter 600 (final) |
+|---|---|---|
+| Test loss | **0.640** ✅ | 0.858 |
+| Test ppl  | **1.896** ✅ | 2.359 |
+| Peak mem  | 3.205 GB | 3.218 GB |
+| 输出 tokens | 18 | 23 |
+
+Prompt：`请将以下白话文翻译为文言文：今天加班到很晚，地铁都停运了，只能打车回家。`
+
+- **iter 200 输出**：`今日夜深方归，其时地铁已歇，唯有雇车而已。`
+  - 简洁、地道——"其时"、"而已" 是真正的文言虚词。
+- **iter 600 输出**：`今日值守至夜深，地铁已尽停载，孤身一人，唯有雇车归家。`
+  - 多出的"孤身一人"是训练数据里没要求的修饰，**过拟合后模型在套训练集里的修辞模板**。
+
+困惑度 2.36 → 1.90 是约 20% 的提升，且 1.90 已踏进"流畅"门槛（< 2.0）。**结论：早停（iter 200）的 checkpoint 才是 Run #1 真正的产物**。
+
+> 操作记录：
+> ```bash
+> cp adapters/adapters.safetensors adapters/_final_iter600.safetensors  # 备份
+> cp adapters/0000200_adapters.safetensors adapters/adapters.safetensors  # 切到最佳
+> ```
 
 ---
 
