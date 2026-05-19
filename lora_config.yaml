@@ -1,0 +1,31 @@
+# MLX-LM LoRA 微调配置 — Qwen2.5-1.5B-Instruct 文白互译
+# 针对 16GB Apple Silicon (M5) 调优，单机 LoRA
+
+model: "Qwen/Qwen2.5-1.5B-Instruct"
+train: true
+data: "data"
+seed: 42
+
+# 仅微调顶部 N 层，节省显存
+num_layers: 8
+
+# 训练超参
+batch_size: 2
+iters: 600
+learning_rate: 1.0e-5
+max_seq_length: 1024
+
+# 评估 / 保存
+steps_per_report: 20
+steps_per_eval: 100
+val_batches: 10
+save_every: 200
+
+adapter_path: "adapters"
+
+# LoRA 结构
+fine_tune_type: lora
+lora_parameters:
+  rank: 8
+  scale: 20.0
+  dropout: 0.0

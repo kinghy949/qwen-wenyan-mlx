@@ -1,0 +1,22 @@
+# venv
+mlx-env/
+.venv/
+venv/
+
+# adapters / fused models / HF cache
+adapters/
+fused-model/
+*.safetensors
+*.npz
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+
+# logs
+*.log
+wandb/

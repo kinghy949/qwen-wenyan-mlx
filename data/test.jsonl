@@ -1,0 +1,5 @@
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：今天的咖啡味道有点苦，但是很提神。"}, {"role": "assistant", "content": "今日之咖啡味稍苦，然颇能提神。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：远程办公已经成为一种新的工作方式。"}, {"role": "assistant", "content": "远程办公已成新式之劳作也。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：他终于鼓起勇气向心爱的人表白了。"}, {"role": "assistant", "content": "其终鼓勇向所爱之人吐露心迹。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下文言文翻译为白话文：但愿人长久，千里共婵娟。"}, {"role": "assistant", "content": "只希望人们能够长长久久地活着，即使相隔千里也能共同欣赏这美好的月光。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：人工智能让翻译变得更加方便快捷。"}, {"role": "assistant", "content": "人工智巧使译事愈为便捷。"}]}

@@ -1,0 +1,10 @@
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：人生若只如初见，何事秋风悲画扇。"}, {"role": "assistant", "content": "人生若只如初见，何事秋风悲画扇。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：他每天坚持锻炼身体，所以身材一直保持得很好。"}, {"role": "assistant", "content": "其日日勤于锻体，故体魄常健。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：父母给的爱是世界上最无私的爱。"}, {"role": "assistant", "content": "双亲之爱，乃天下最无私者。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下文言文翻译为白话文：山不在高，有仙则名。水不在深，有龙则灵。"}, {"role": "assistant", "content": "山不一定要高，有了仙人就会出名；水不一定要深，有了龙就会显得灵异。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：在这个信息爆炸的时代，独立思考变得格外重要。"}, {"role": "assistant", "content": "处此讯息泛滥之世，独立思辨尤为可贵。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：他在那个偏远的小山村教书已经三十年了。"}, {"role": "assistant", "content": "其于偏远山村执教，已三十载矣。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下文言文翻译为白话文：海内存知己，天涯若比邻。"}, {"role": "assistant", "content": "四海之内只要有了解自己的好友，即使远在天涯也像近邻一样。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：暮色降临，远处的灯火一盏一盏地亮起来。"}, {"role": "assistant", "content": "暮色既临，远处灯火次第而明。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：智能手机改变了我们的生活方式。"}, {"role": "assistant", "content": "智识之机改易吾辈生活之方式。"}]}
+{"messages": [{"role": "system", "content": "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"}, {"role": "user", "content": "请将以下白话文翻译为文言文：真正的朋友是在你最困难的时候还愿意陪伴你的人。"}, {"role": "assistant", "content": "真友者，于汝最困之时仍愿相伴者也。"}]}
