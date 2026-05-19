@@ -1,7 +1,7 @@
 """交互式文白互译 REPL — 加载基座 + LoRA adapter"""
 from mlx_lm import load, generate
 
-MODEL = "Qwen/Qwen2.5-1.5B-Instruct"
+MODEL = "./models/Qwen2.5-1.5B-Instruct"
 ADAPTER = "adapters"
 SYSTEM = "你是一个精通文言文的翻译助手，能够在白话文与文言文之间互相转换。"
 

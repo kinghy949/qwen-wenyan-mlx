@@ -6,6 +6,7 @@ venv/
 # adapters / fused models / HF cache
 adapters/
 fused-model/
+models/
 *.safetensors
 *.npz
 

@@ -4,7 +4,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 mlx_lm.lora \
-  --model Qwen/Qwen2.5-1.5B-Instruct \
+  --model ./models/Qwen2.5-1.5B-Instruct \
   --adapter-path adapters \
   --data data \
   --test

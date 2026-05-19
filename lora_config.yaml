@@ -1,7 +1,7 @@
 # MLX-LM LoRA 微调配置 — Qwen2.5-1.5B-Instruct 文白互译
 # 针对 16GB Apple Silicon (M5) 调优，单机 LoRA
 
-model: "Qwen/Qwen2.5-1.5B-Instruct"
+model: "./models/Qwen2.5-1.5B-Instruct"
 train: true
 data: "data"
 seed: 42

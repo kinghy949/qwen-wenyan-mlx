@@ -45,7 +45,7 @@
 
 ## 🚀 完整流程
 
-### 0. 环境准备（已完成）
+### 0. 环境准备
 
 ```bash
 python -m venv mlx-env
@@ -53,9 +53,32 @@ source mlx-env/bin/activate
 pip install mlx-lm datasets
 ```
 
-> mlx-lm 会在首次运行时自动从 HuggingFace 拉取基座模型（约 3GB），请保持网络畅通。如在国内，可设置 `export HF_ENDPOINT=https://hf-mirror.com`。
+### 1. 下载基座模型（国内推荐 ModelScope）
 
-### 1. 训练
+mlx-lm 默认从 HuggingFace 拉模型。国内直连 huggingface.co 经常超时；`HF_ENDPOINT=https://hf-mirror.com` 这个镜像偶尔会出现 metadata 校验失败（`FileMetadataError: Distant resource does not seem to be on huggingface.co`）。**最稳的方案是用阿里 ModelScope 预下载到本地，再让 mlx-lm 从本地路径加载**。
+
+```bash
+source mlx-env/bin/activate
+pip install modelscope
+unset HF_ENDPOINT   # 如果之前设过镜像，先清掉
+
+modelscope download --model Qwen/Qwen2.5-1.5B-Instruct \
+  --local_dir ./models/Qwen2.5-1.5B-Instruct
+```
+
+下载后 `./models/Qwen2.5-1.5B-Instruct/` 内应包含 `config.json`、`tokenizer.json`、`*.safetensors`、`*.safetensors.index.json`。如中途断流，重跑同一条 `modelscope download` 命令即可续传。
+
+**备选 A — git-lfs 直接克隆 ModelScope 仓库**：
+```bash
+brew install git-lfs && git lfs install
+git clone https://www.modelscope.cn/Qwen/Qwen2.5-1.5B-Instruct.git ./models/Qwen2.5-1.5B-Instruct
+```
+
+**备选 B — 仍然走 HuggingFace**：把 `lora_config.yaml` 里的 `model:` 改回 `"Qwen/Qwen2.5-1.5B-Instruct"`，并 `export HF_ENDPOINT=https://hf-mirror.com`（不稳定时反复重试）。
+
+本仓库里 `lora_config.yaml` 和 `scripts/*` 默认引用本地路径 `./models/Qwen2.5-1.5B-Instruct`，并已在 `.gitignore` 中忽略 `models/`，权重不会被提交。
+
+### 2. 训练
 
 ```bash
 source mlx-env/bin/activate
@@ -75,7 +98,7 @@ mlx_lm.lora --config lora_config.yaml
 
 **判断收敛**：train loss 通常从 ~2.5 降到 ~0.8 左右；valid loss 若反弹，说明过拟合，可减小 `iters` 或 `lora rank`。
 
-### 2. 测试集评估
+### 3. 测试集评估
 
 ```bash
 bash scripts/eval.sh
@@ -83,7 +106,7 @@ bash scripts/eval.sh
 
 输出 test.jsonl 上的平均 loss / perplexity。
 
-### 3. 单条推理（最直观）
+### 4. 单条推理（最直观）
 
 ```bash
 bash scripts/generate.sh "请将以下白话文翻译为文言文：今天我加班到很晚，地铁都停运了，只能打车回家。"
@@ -95,7 +118,7 @@ bash scripts/generate.sh "请将以下白话文翻译为文言文：今天我加
 bash scripts/generate.sh "请将以下文言文翻译为白话文：吾日三省吾身。"
 ```
 
-### 4. 交互 REPL
+### 5. 交互 REPL
 
 ```bash
 python scripts/chat.py
@@ -106,7 +129,7 @@ python scripts/chat.py
 模型> 智机渐易天下也。
 ```
 
-### 5. 合并 adapter → 独立模型（可选）
+### 6. 合并 adapter → 独立模型（可选）
 
 ```bash
 bash scripts/fuse.sh
