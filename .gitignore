@@ -6,6 +6,7 @@ venv/
 # adapters / fused models / HF cache
 adapters/
 adapters_run1/
+adapters_run2/
 fused-model/
 models/
 tmp_outputs/
