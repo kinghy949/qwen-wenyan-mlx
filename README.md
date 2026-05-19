@@ -2,7 +2,22 @@
 
 在 Apple Silicon (M-series) 上用 **MLX-LM** 对 **Qwen2.5-1.5B-Instruct** 做 LoRA 微调，得到一个**白话 ↔ 文言文互译**的小模型。
 
-> 硬件参考：MacBook Air M5，16GB RAM / 10-core GPU。1.5B + LoRA 全程显存峰值约 6–8GB，训练 600 步约 15–25 分钟。
+> 硬件参考：MacBook Air M5，16GB RAM / 10-core GPU。1.5B + LoRA 全程显存峰值约 4GB，单轮训练 ~1.5 分钟。
+
+## 🏆 最终状态
+
+- **数据集**：222 条文白对照（142 经典/双向/现代场景 + 80 补盲区）
+- **三轮迭代**完整文档见 [`TRAINING_LOG.md`](TRAINING_LOG.md)
+- **当前推荐 adapter**：Run #3 iter 225（val 0.599 / test ppl 1.762）
+- **效果实测**：14 条 prompt 见 [`examples.md`](examples.md)（基于 Run #1 iter 200）
+
+| | Run #1 | Run #2 | **Run #3 ✅** |
+|---|---|---|---|
+| rank / dropout | 8 / 0 | 4 / 0.05 | 6 / 0.02 |
+| Val 最低 | 0.629 | 0.607 | **0.599** |
+| 风格 | 偶有惊艳，易过拟合 | 稳但平庸 | **稳且有亮点** |
+
+**亮眼输出**：早睡早起 → "夙兴夜寐"；AI 改变生活 → "人工智巧，潜移默化，于吾辈之工作与生活，无处不改。"
 
 ---
 
